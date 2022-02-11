@@ -51,7 +51,6 @@ router.post('/login',async(req,res)=>{
         if(compare)
         {
           let token  = await createToken(user.email,user.firstName,user.role)
-          console.log(token)
           res.json({
               statusCode:200,
               role:user.role,
@@ -86,7 +85,7 @@ router.post('/login',async(req,res)=>{
 })
 
 
-router.post('/auth',verifyToken,verifyAdminRole,async(req,res)=>{
+router.post('/auth',verifyToken,/*verifyAdminRole,*/ async(req,res)=>{
   res.json({
     statusCode:200,
     message:req.body.purpose

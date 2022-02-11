@@ -6,7 +6,6 @@ var secret = "snkjdsknfjbekjb@#$mnkj*&153"
 
 var hashPassword = async (pwd)=>{
     let salt = await bcrypt.genSalt(saltRound);
-    console.log(salt)
     let hash = await bcrypt.hash(pwd,salt);
     return hash
 }   
@@ -25,7 +24,7 @@ var createToken = async (email,firstName,role)=>{
     },
     secret,
     {
-        expiresIn:"10m"
+        expiresIn:"1m"
     }
     )
     return token
